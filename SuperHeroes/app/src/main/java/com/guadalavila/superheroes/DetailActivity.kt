@@ -29,9 +29,15 @@ class DetailActivity : AppCompatActivity() {
         val desc = bundle.getString(BIO_KEY)?: "";
         val power = bundle.getFloat(POWER_KEY)?: 0.0f;
     */
-        binding.egoEdit.text = hero.alterEgo;
+
+        //Usar el data del binding
+        binding.superhero = hero
+  /*      binding.egoEdit.text = hero.alterEgo;
         binding.bioText.text = hero.bio;
         binding.heroName.text =  hero.name;
-        binding.ratingBar.rating = hero.rating;
+        binding.ratingBar.rating = hero.rating;*/
+
+
+
     }
 }
