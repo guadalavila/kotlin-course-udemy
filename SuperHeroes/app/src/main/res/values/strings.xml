@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Super Heroes</string>
+    <string name="power">Poder</string>
+    <string name="description">Descripción</string>
+    <string name="bio">BIO</string>
+    <string name="save">Guardar</string>
+</resources>
