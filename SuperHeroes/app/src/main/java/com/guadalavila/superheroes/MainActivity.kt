@@ -1,13 +1,22 @@
 package com.guadalavila.superheroes
 
+import android.app.Activity
 import android.content.ClipDescription
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
+import android.widget.ImageView
+import androidx.core.graphics.drawable.toBitmap
 import com.guadalavila.superheroes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var heroImage: ImageView
+    //lateinit se le asegura a kotlin que va a tener un valor, antes de ser usada
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -21,12 +30,36 @@ class MainActivity : AppCompatActivity() {
             val hero = SuperHero(name, alterEgo, description, power)
             openDetailActivity(hero);
         }
+
+        heroImage = binding.heroImage
+
+        binding.heroImage.setOnClickListener{
+            openCamera()
+        }
+    }
+
+    private fun openCamera() {
+        //create intent implicito para abrir la camara
+        val camaraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camaraIntent, 1000)
+
     }
 
     private fun openDetailActivity (hero: SuperHero) {
         //Un Intent es como un sobre que lleva contenido a otras activities
         val intent =  Intent(this, DetailActivity::class.java) //explicit Intent
         intent.putExtra(DetailActivity.HERO_KEY, hero)
+        intent.putExtra(DetailActivity.BITMAP_KEY, heroImage.drawable.toBitmap())
         startActivity(intent)
+    }
+
+    //se llama automaticamente, luego de tomar la foto
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK && requestCode == 1000) {
+            val extras= data?.extras
+            val heroBitmap = extras?.getParcelable<Bitmap>("data")
+            heroImage.setImageBitmap(heroBitmap)
+        }
     }
 }

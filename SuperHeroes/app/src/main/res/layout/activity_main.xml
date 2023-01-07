@@ -16,6 +16,7 @@
             android:id="@+id/hero_image"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:autofillHints="creditCardExpirationDate"
             tools:src="@android:drawable/ic_menu_camera" />
         <EditText
             android:id="@+id/hero_name_edit"

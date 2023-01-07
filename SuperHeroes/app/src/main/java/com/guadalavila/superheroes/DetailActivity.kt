@@ -1,5 +1,6 @@
 package com.guadalavila.superheroes
 
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.guadalavila.superheroes.databinding.ActivityDetailBinding
@@ -13,6 +14,8 @@ class DetailActivity : AppCompatActivity() {
         const val BIO_KEY = "bio";
         const val POWER_KEY = "power";
         const val HERO_KEY = "hero";
+        const val BITMAP_KEY = "bitmap";
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +25,8 @@ class DetailActivity : AppCompatActivity() {
         val bundle = intent.extras!!;
 
         val hero = bundle.getParcelable<SuperHero>(HERO_KEY)!!
+        val bitmap = bundle.getParcelable<Bitmap>(BITMAP_KEY)!!
+
 
     /*
         val name = bundle.getString(NAME_KEY) ?: "";
@@ -32,6 +37,7 @@ class DetailActivity : AppCompatActivity() {
 
         //Usar el data del binding
         binding.superhero = hero
+        binding.imageView.setImageBitmap(bitmap)
   /*      binding.egoEdit.text = hero.alterEgo;
         binding.bioText.text = hero.bio;
         binding.heroName.text =  hero.name;
