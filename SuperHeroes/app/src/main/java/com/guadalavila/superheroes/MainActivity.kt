@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private var heroBitmap: Bitmap ? = null
     //lateinit se le asegura a kotlin que va a tener un valor, antes de ser usada
 
-    val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
         bitmap ->
         heroBitmap = bitmap
         heroImage.setImageBitmap(heroBitmap)
