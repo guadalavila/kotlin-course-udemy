@@ -9,13 +9,22 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.graphics.drawable.toBitmap
 import com.guadalavila.superheroes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var heroImage: ImageView
+    private var heroBitmap: Bitmap ? = null
     //lateinit se le asegura a kotlin que va a tener un valor, antes de ser usada
+
+    val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
+        bitmap ->
+        heroBitmap = bitmap
+        heroImage.setImageBitmap(heroBitmap)
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +48,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openCamera() {
-        //create intent implicito para abrir la camara
-        val camaraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(camaraIntent, 1000)
-
+        //create intent implicito para abrir la camara //Deprecado
+  /*      val camaraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camaraIntent, 1000) //deprecated*/
+        getContent.launch(null)
     }
 
     private fun openDetailActivity (hero: SuperHero) {
@@ -53,13 +62,13 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    //se llama automaticamente, luego de tomar la foto
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == Activity.RESULT_OK && requestCode == 1000) {
-            val extras= data?.extras
-            val heroBitmap = extras?.getParcelable<Bitmap>("data")
-            heroImage.setImageBitmap(heroBitmap)
-        }
-    }
+    //se llama automaticamente, luego de tomar la foto...esta deprecado
+    /*    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data) //deprecated
+            if(resultCode == Activity.RESULT_OK && requestCode == 1000) {
+                val extras= data?.extras
+                val heroBitmap = extras?.getParcelable<Bitmap>("data")
+                heroImage.setImageBitmap(heroBitmap)
+            }
+        }*/
 }
