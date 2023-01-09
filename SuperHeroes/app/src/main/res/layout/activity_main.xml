@@ -6,49 +6,62 @@
     <data>
 
     </data>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    >
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_alignParentBottom="true"
+        />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        tools:context=".MainActivity">
-        <ImageView
-            android:id="@+id/hero_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:autofillHints="creditCardExpirationDate"
-            tools:src="@android:drawable/ic_menu_camera" />
-        <EditText
-            android:id="@+id/hero_name_edit"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/save_button">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/hero_image"
-            android:layout_alignTop="@id/hero_image"
-            android:layout_marginStart="16dp"
-            android:maxLines="20"
-            android:hint="Superhero name"
-            />
+           >
+            <ImageView
+                android:id="@+id/hero_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:autofillHints="creditCardExpirationDate"
+                tools:src="@android:drawable/ic_menu_camera" />
+            <EditText
+                android:id="@+id/hero_name_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/hero_image"
+                android:layout_alignTop="@id/hero_image"
+                android:layout_marginStart="16dp"
+                android:maxLines="20"
+                android:hint="Superhero name"
+                />
 
-        <EditText
-            android:id="@+id/hero_alter_ego_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/hero_image"
-            android:layout_alignBottom="@id/hero_image"
-            android:layout_marginStart="16dp"
-            android:hint="Alter ego"
-            />
-        <View
-            android:id="@+id/separator"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"
-            android:layout_below="@id/hero_image"
-            android:layout_marginTop="16dp"
-            />
+            <EditText
+                android:id="@+id/hero_alter_ego_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/hero_image"
+                android:layout_alignBottom="@id/hero_image"
+                android:layout_marginStart="16dp"
+                android:hint="Alter ego"
+                />
+            <View
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black"
+                android:layout_below="@id/hero_image"
+                android:layout_marginTop="16dp"
+                />
 
 
             <TextView
@@ -62,17 +75,16 @@
                 android:textSize="18sp"
                 android:text="@string/bio"/>
 
-        <EditText
-            android:id="@+id/description_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bio_text"
-            android:layout_marginVertical="32dp"
-            android:layout_marginTop="-179dp"
-            android:height="300dp"
-            android:hint="@string/description" />
+            <EditText
+                android:id="@+id/description_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bio_text"
+                android:layout_marginVertical="32dp"
+                android:layout_marginTop="-152dp"
+                android:hint="@string/description" />
 
-        <TextView
+            <TextView
                 android:id="@+id/power_text"
                 android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
@@ -90,15 +102,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
                 android:progressTint="@color/yellow"
-                 />
-        <Button
-            android:id="@+id/save_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            android:layout_alignParentBottom="true"
-             />
+                />
 
-    </RelativeLayout>
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
 </layout>
