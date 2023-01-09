@@ -7,6 +7,9 @@
 
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,6 +28,7 @@
             android:layout_toEndOf="@id/hero_image"
             android:layout_alignTop="@id/hero_image"
             android:layout_marginStart="16dp"
+            android:maxLines="20"
             android:hint="Superhero name"
             />
 
@@ -58,16 +62,17 @@
                 android:textSize="18sp"
                 android:text="@string/bio"/>
 
-            <EditText
-                android:id="@+id/description_edit"
-                android:layout_marginVertical="32dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/bio_text"
-                android:hint="@string/description"
-                android:lines="3"
-                />
-            <TextView
+        <EditText
+            android:id="@+id/description_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bio_text"
+            android:layout_marginVertical="32dp"
+            android:layout_marginTop="-179dp"
+            android:height="300dp"
+            android:hint="@string/description" />
+
+        <TextView
                 android:id="@+id/power_text"
                 android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
@@ -95,5 +100,5 @@
              />
 
     </RelativeLayout>
-
+</ScrollView>
 </layout>
