@@ -2,7 +2,14 @@
     <string name="app_name">Basket Scores</string>
     <string name="local">Local</string>
     <string name="description_example">Fue un empate</string>
-    <string name="example_result">14 - 14</string>
+    <string name="example_result">0 - 0</string>
     <string name="title_resume">Local - Visitante</string>
     <string name="visit">Visitante</string>
+    <string name="back">Volver</string>
+    <string name="message_score_zero">No puedes disminuir al visitante</string>
+    <string name="start_again">Vuelve a empezar</string>
+    <string name="you_cant_decrease_local">No puedes disminuir al local</string>
+    <string name="win_visit">Ganó el Equipo visitante!!!</string>
+    <string name="win_local">Ganó el Equipo local!!!</string>
+    <string name="it_was_a_tie">Fue un Empate :(</string>
 </resources>

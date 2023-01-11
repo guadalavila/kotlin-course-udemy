@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigateBtn.setOnClickListener {
             val intent =  Intent(this, ResumeActivity::class.java);
+            intent.putExtra("visit_score", visitScore);
+            intent.putExtra("local_score", localScore);
             startActivity(intent);
         }
 
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 localScore -= 1;
                 binding.localScores.text = localScore.toString();
             }else{
-              Toast.makeText(this, "No puedes disminuir al local", Toast.LENGTH_LONG).show()
+              Toast.makeText(this, getString(R.string.you_cant_decrease_local), Toast.LENGTH_LONG).show()
             }
         }
 
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 visitScore -= 1;
                 binding.visitScores.text = visitScore.toString();
             }else{
-                Toast.makeText(this, "No puedes disminuir al visitante", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.message_score_zero), Toast.LENGTH_LONG).show()
             }
         }
         binding.restartBtn.setOnClickListener {
@@ -61,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             visitScore = 0;
             binding.visitScores.text= visitScore.toString()
             binding.localScores.text= localScore.toString()
-            Toast.makeText(this, "Vuelve a empezar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.start_again), Toast.LENGTH_SHORT).show();
         }
     }
 }
