@@ -27,8 +27,8 @@
 
         <TextView
             android:id="@+id/result_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="123dp"
+            android:layout_height="83dp"
             android:fontFamily="sans-serif-black"
             android:hint="@string/example_result"
             android:text=""
