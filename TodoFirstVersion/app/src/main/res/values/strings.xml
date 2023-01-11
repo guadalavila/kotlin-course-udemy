@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TodoFirstVersion</string>
+    <string name="description_task">Describe la tarea</string>
+    <string name="add">Agregar</string>
 </resources>
